@@ -1,3 +1,13 @@
-h1, h2 {
+.title {
   font-family: Lato;
+  font-size: 10vh;
+}
+
+img {
+  max-width: 95vw;
+  height: 60vw;
+}
+
+body {
+  text-align: center;
 }
