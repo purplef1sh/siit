@@ -2,6 +2,10 @@
 import './style.css';
 
 const imageNamesList = [
+  'Around-The-World-Plank.jpg',
+  'Basic-Push-Up.jpg',
+  'Basic-Squat.jpg',
+  'Bicycle-Crunch.jpg',
   'Body-Saw.jpg'
 ]
 
