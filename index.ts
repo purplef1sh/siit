@@ -1,6 +1,10 @@
 // Import stylesheets
 import './style.css';
 
+function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const imageEl: HTMLImageElement = document.querySelector('img');
 const titleEl: HTMLElement = document.querySelector('.title');
 
@@ -43,8 +47,7 @@ const stretchList = [
   'Neck-Rolls.jpg',
   'Downward-Dog-Hand-Up.jpg',
   'Downward-Dog-Hand-Up.jpg',
-
-]
+];
 
 
 function getImageUrl(imageName: string): string {
@@ -55,12 +58,18 @@ function getNameFromImageName(imageName: string): string {
   return imageName.substring(0, imageName.lastIndexOf('.')).split('-').join(' ');
 }
 
+function show(imageName: string) {
+  imageEl.src = getImageUrl(imageName);
+  titleEl.innerText = getNameFromImageName(imageName);
+}
 
-// TODO: Create function to display(imageName)
-const imageName = stretchList[5];
+async function start() {
+  const combinedList = strengthList.reduce((x, y, z) => (x.splice(z * 2, 0, y), x), stretchList.slice());
+  console.log(combinedList);
+  for (const item of combinedList) {
+    show(item);
+    await sleep(5000);
+  }
+}
 
-
-
-imageEl.src = getImageUrl(imageName);
-
-titleEl.innerText = getNameFromImageName(imageName);
+start();
