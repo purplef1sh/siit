@@ -4,7 +4,8 @@ import './style.css';
 const imageEl: HTMLImageElement = document.querySelector('img');
 const titleEl: HTMLElement = document.querySelector('.title');
 
-const imageNamesList = [
+const strengthList = [
+  'Narrow-Squat.jpg',
   'Around-The-World-Plank.jpg',
   'Basic-Push-Up.jpg',
   'Basic-Squat.jpg',
@@ -22,7 +23,7 @@ function getNameFromImageName(imageName: string): string {
 
 
 // TODO: Create function to display(imageName)
-const imageName = imageNamesList[0];
+const imageName = imageNamesList[2];
 
 
 imageEl.src = getImageUrl(imageName);
