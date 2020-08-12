@@ -61,6 +61,8 @@ function getNameFromImageName(imageName: string): string {
 function show(imageName: string) {
   imageEl.src = getImageUrl(imageName);
   titleEl.innerText = getNameFromImageName(imageName);
+  const msg = new SpeechSynthesisUtterance(titleEl.innerText);
+  window.speechSynthesis.speak(msg);  
 }
 
 async function start() {
