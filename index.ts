@@ -58,11 +58,23 @@ function getNameFromImageName(imageName: string): string {
   return imageName.substring(0, imageName.lastIndexOf('.')).split('-').join(' ');
 }
 
-function show(imageName: string) {
+async function show(imageName: string) {
   imageEl.src = getImageUrl(imageName);
-  titleEl.innerText = getNameFromImageName(imageName);
-  const msg = new SpeechSynthesisUtterance(titleEl.innerText);
-  window.speechSynthesis.speak(msg);  
+  const exersizeName = getNameFromImageName(imageName);
+  titleEl.innerText = exersizeName;
+  window.speechSynthesis.speak(new SpeechSynthesisUtterance(`${exersizeName}`));
+  window.speechSynthesis.speak(new SpeechSynthesisUtterance(`3.`));
+  window.speechSynthesis.speak(new SpeechSynthesisUtterance(`2.`));
+  window.speechSynthesis.speak(new SpeechSynthesisUtterance(`1.`));
+  window.speechSynthesis.speak(new SpeechSynthesisUtterance(`GO!`));
+  for (let i=0 ; i<60 ; i++) {
+    window.speechSynthesis.speak(new SpeechSynthesisUtterance(``));
+    await sleep(1000);
+  }
+  window.speechSynthesis.speak(new SpeechSynthesisUtterance(`3.`));
+  window.speechSynthesis.speak(new SpeechSynthesisUtterance(`2.`));
+  window.speechSynthesis.speak(new SpeechSynthesisUtterance(`1.`));
+  window.speechSynthesis.speak(new SpeechSynthesisUtterance(`You did great.`));
 }
 
 async function start() {
@@ -70,7 +82,7 @@ async function start() {
   console.log(combinedList);
   for (const item of combinedList) {
     show(item);
-    await sleep(5000);
+    await sleep(20000);
   }
 }
 
